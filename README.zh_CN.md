@@ -33,7 +33,7 @@ egg-view-handlebars 版本 | egg 1.x
 1.x | 😁
 0.x | ❌
 
-### 依赖的插件
+<!--### 依赖的插件 -->
 <!--
 
 如果有依赖其它插件，请在这里特别说明。如
@@ -53,19 +53,40 @@ exports.handlebars = {
 };
 ```
 
-## 使用场景
 
-- Why and What: 描述为什么会有这个插件，它主要在完成一件什么事情。
-尽可能描述详细。
-- How: 描述这个插件是怎样使用的，具体的示例代码，甚至提供一个完整的示例，并给出链接。
+## 配置
+
+```js
+// {app_root}/config/config.default.js
+exports.handlebars = {
+	
+};
+```
 
 ## 详细配置
 
 请到 [config/config.default.js](config/config.default.js) 查看详细配置项说明。
 
-## 单元测试
+## 覆盖默认配置
 
-<!-- 描述如何在单元测试中使用此插件，例如 schedule 如何触发。无则省略。-->
+```js
+module.exports = {
+	keys: 'e6099001cb0a0ec3eb8b0e1a54b27060',
+	view: {
+		data: true,
+        compat: true,
+        noEscape: false,
+        knownHelpers: false,
+        knownHelpersOnly: true,
+		defaultViewEngine: 'handlebars',
+		defaultExtension: '.hbs',
+		mapping: {
+			'.hbs': 'handlebars',
+		},
+	}
+};
+```
+
 
 ## 提问交流
 
