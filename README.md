@@ -45,14 +45,27 @@ exports.handlebars = {
 ```js
 // {app_root}/config/config.default.js
 exports.handlebars = {
+	
 };
 ```
 
 see [config/config.default.js](config/config.default.js) for more detail.
 
-## Example
+Overriding the default configuration
 
-<!-- example here -->
+```js
+module.exports = {
+	keys: 'e6099001cb0a0ec3eb8b0e1a54b27060',
+	view: {
+		data:false,
+		defaultViewEngine: 'handlebars',
+		defaultExtension: '.hbs',
+		mapping: {
+			'.hbs': 'handlebars',
+		},
+	}
+};
+```
 
 ## Questions & Suggestions
 
