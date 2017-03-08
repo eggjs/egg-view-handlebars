@@ -9,7 +9,23 @@ module.exports = app => {
     this.body = yield this.renderString('{{title}}',{title:'renderString'});
   });
 
+  app.get('/renderStringError',function* () {
+    try {
+      yield this.renderString('{{title}',{title:'renderString'});
+    } catch (err) {
+      this.body = err.message;
+    }
+  });
+
   app.get('/render',function* () {
     yield this.render('home',{title:'render'});
+  });
+
+  app.get('/renderError',function* () {
+    try {
+      yield this.render('error',{title:'render'});
+    } catch (err) {
+      this.body = err.message;
+    }
   });
 };
