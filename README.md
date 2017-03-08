@@ -32,11 +32,35 @@ $ npm i egg-view-handlebars --save
 
 ## Usage
 
+`{app_root}/config/plugin.js`
 ```js
-// {app_root}/config/plugin.js
 exports.handlebars = {
   enable: true,
   package: 'egg-view-handlebars',
+};
+```
+
+`{app_root}/config/config.default.js`
+```js
+'use strict';
+/**
+ * app keys
+ * @type {string}
+ */
+exports.keys = 'e6099001cb0a0ec3eb8b0e1a54b27060';
+/**
+ * view
+ * @member
+ * @property defaultViewEngine: string setup default view engine
+ * @property defaultExtension: string template file extension
+ * @property mapping: Object {string: string}
+ */
+exports.view = {
+	defaultViewEngine: 'handlebars',
+	defaultExtension: '.hbs',
+	mapping: {
+		'.hbs': 'handlebars',
+	},
 };
 ```
 
@@ -45,14 +69,11 @@ exports.handlebars = {
 ```js
 // {app_root}/config/config.default.js
 exports.handlebars = {
+	
 };
 ```
 
 see [config/config.default.js](config/config.default.js) for more detail.
-
-## Example
-
-<!-- example here -->
 
 ## Questions & Suggestions
 

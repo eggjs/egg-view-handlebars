@@ -21,4 +21,18 @@ describe('test/view-handlebars.test.js', () => {
       .expect('hi, handlebars')
       .expect(200);
   });
+
+  it('should GET /renderString', () => {
+    return request(app.callback())
+        .get('/renderString')
+        .expect('renderString')
+        .expect(200);
+  });
+
+  it('should GET /render', () => {
+    return request(app.callback())
+        .get('/render')
+        .expect('render')
+        .expect(200);
+  });
 });
