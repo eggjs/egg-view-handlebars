@@ -20,9 +20,7 @@
 [download-image]: https://img.shields.io/npm/dm/egg-view-handlebars.svg?style=flat-square
 [download-url]: https://npmjs.org/package/egg-view-handlebars
 
-<!--
-Description here.
--->
+egg view plugin for handlebars
 
 ## Install
 
@@ -32,22 +30,16 @@ $ npm i egg-view-handlebars --save
 
 ## Usage
 
-`{app_root}/config/plugin.js`
 ```js
+// {app_root}/config/plugin.js
 exports.handlebars = {
   enable: true,
   package: 'egg-view-handlebars',
 };
 ```
 
-`{app_root}/config/config.default.js`
 ```js
-'use strict';
-/**
- * app keys
- * @type {string}
- */
-exports.keys = 'e6099001cb0a0ec3eb8b0e1a54b27060';
+// {app_root}/config/config.default.js
 /**
  * view
  * @member
@@ -65,13 +57,6 @@ exports.view = {
 ```
 
 ## Configuration
-
-```js
-// {app_root}/config/config.default.js
-exports.handlebars = {
-	
-};
-```
 
 see [config/config.default.js](config/config.default.js) for more detail.
 

@@ -29,10 +29,24 @@ describe('test/view-handlebars.test.js', () => {
         .expect(200);
   });
 
+  it('should GET /renderStringError', () => {
+    return request(app.callback())
+        .get('/renderStringError')
+        .expect(/Parse error on line 1/)
+        .expect(200);
+  });
+
   it('should GET /render', () => {
     return request(app.callback())
         .get('/render')
         .expect('render')
+        .expect(200);
+  });
+
+  it('should GET /renderError', () => {
+    return request(app.callback())
+        .get('/renderError')
+        .expect(/Parse error on line 1/)
         .expect(200);
   });
 });
