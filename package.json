@@ -1,6 +1,6 @@
 {
   "name": "egg-view-handlebars",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "egg view plugin for handlebars",
   "eggPlugin": {
     "name": "handlebars",
@@ -40,12 +40,8 @@
     "autod": "autod"
   },
   "files": [
-    "index.js",
     "app.js",
-    "agent.js",
-    "config",
-    "app",
-    "lib"
+    "config"
   ],
   "ci": {
     "version": "6, 7"
@@ -58,6 +54,6 @@
     "url": "https://github.com/eggjs/egg/issues"
   },
   "homepage": "https://github.com/eggjs/egg-view-handlebars#readme",
-  "author": "",
+  "author": "huangyanxiong <huangyanxiong2013@gmail.com>",
   "license": "MIT"
 }
