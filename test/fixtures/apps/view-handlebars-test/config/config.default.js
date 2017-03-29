@@ -12,9 +12,16 @@ exports.keys = 'e6099001cb0a0ec3eb8b0e1a54b27060';
  * @property mapping: Object {string: string}
  */
 exports.view = {
-	defaultViewEngine: 'handlebars',
-	defaultExtension: '.hbs',
-	mapping: {
-		'.hbs': 'handlebars',
-	},
+  defaultViewEngine: 'handlebars',
+  defaultExtension: '.hbs',
+  mapping: {
+    '.hbs': 'handlebars',
+  },
+};
+
+exports.handlebars = {
+  partials: {
+    userMessage: '<{{tagName}}>By {{author.firstName}} {{author.lastName}}</{{tagName}}>'
+    + '<div class="body">{{body}}</div>',
+  },
 };

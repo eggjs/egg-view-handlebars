@@ -12,6 +12,7 @@
  * @property {Boolean} [strict=false] run in strict mode
  * @property {Boolean} [explicitPartialContext=true]
  * @property {Boolean} [ignoreStandalone=true] When the value is true,disables standalone tag
+ * @property {Object} [partials] register partial
  */
 exports.handlebars = {
   data: true,
@@ -22,4 +23,5 @@ exports.handlebars = {
   strict: false,
   explicitPartialContext: true,
   ignoreStandalone: true,
+  partials: {},
 };

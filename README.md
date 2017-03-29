@@ -48,12 +48,26 @@ exports.handlebars = {
  * @property mapping: Object {string: string}
  */
 exports.view = {
-	defaultViewEngine: 'handlebars',
-	defaultExtension: '.hbs',
-	mapping: {
-		'.hbs': 'handlebars',
-	},
+  defaultViewEngine: 'handlebars',
+  defaultExtension: '.hbs',
+  mapping: {
+    '.hbs': 'handlebars',
+  },
 };
+```
+
+### Register Partial
+
+You can register partial in `config.default.js`, the example is from [official site](http://handlebarsjs.com/#partials)
+
+```js
+// config/config.default.js
+exports.handlebars = {
+  partials: {
+    userMessage: '<{{tagName}}>By {{author.firstName}} {{author.lastName}}</{{tagName}}>'
+    + '<div class="body">{{body}}</div>',
+  }
+}
 ```
 
 ## Configuration

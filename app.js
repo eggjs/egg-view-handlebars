@@ -5,6 +5,11 @@ const fs = require('mz/fs');
 const handlebars = require('handlebars');
 
 module.exports = app => {
+  const partials = app.config.handlebars.partials;
+  for (const key of Object.keys(partials)) {
+    handlebars.registerPartial(key, partials[key]);
+  }
+
   class HandlebarsView {
     constructor(ctx) {
       this.app = ctx.app;
