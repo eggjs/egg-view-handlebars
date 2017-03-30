@@ -1,0 +1,9 @@
+<div class="post">
+  {{> userMessage tagName="h1" }}
+
+  <h1>Comments</h1>
+
+  {{#each comments}}
+    {{> userMessage tagName="h2" }}
+  {{/each}}
+</div>

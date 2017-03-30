@@ -24,29 +24,36 @@ describe('test/view-handlebars.test.js', () => {
 
   it('should GET /renderString', () => {
     return request(app.callback())
-        .get('/renderString')
-        .expect('renderString')
-        .expect(200);
+      .get('/renderString')
+      .expect('renderString')
+      .expect(200);
   });
 
   it('should GET /renderStringError', () => {
     return request(app.callback())
-        .get('/renderStringError')
-        .expect(/Parse error on line 1/)
-        .expect(200);
+      .get('/renderStringError')
+      .expect(/Parse error on line 1/)
+      .expect(200);
   });
 
   it('should GET /render', () => {
     return request(app.callback())
-        .get('/render')
-        .expect('render')
-        .expect(200);
+      .get('/render')
+      .expect('render')
+      .expect(200);
   });
 
   it('should GET /renderError', () => {
     return request(app.callback())
-        .get('/renderError')
-        .expect(/Parse error on line 1/)
-        .expect(200);
+      .get('/renderError')
+      .expect(/Parse error on line 1/)
+      .expect(200);
+  });
+
+  it('should GET /partial', () => {
+    return request(app.callback())
+      .get('/partial')
+      .expect(/<h2>By Yehuda Katz<\/h2>\n<div class="body">/)
+      .expect(200);
   });
 });
