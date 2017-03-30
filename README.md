@@ -60,7 +60,10 @@ exports.view = {
 
 Partials are loaded from `app/view/partials` by default, you can define `user_message.hbs` and use `userMessage` as partial.
 
-**The file name will be camelized, e.x. `foo_bar > fooBar`, `foo-bar > fooBar`**
+Note:
+
+- The file name will be camelized, e.x. `foo_bar > fooBar`, `foo-bar > fooBar`
+- Don't support cascade directory
 
 ## Configuration
 
