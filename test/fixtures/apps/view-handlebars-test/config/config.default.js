@@ -18,10 +18,3 @@ exports.view = {
     '.hbs': 'handlebars',
   },
 };
-
-exports.handlebars = {
-  partials: {
-    userMessage: '<{{tagName}}>By {{author.firstName}} {{author.lastName}}</{{tagName}}>'
-    + '<div class="body">{{body}}</div>',
-  },
-};

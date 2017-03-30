@@ -15,7 +15,7 @@ module.exports = appInfo => ({
    * @property {Boolean} [strict=false] run in strict mode
    * @property {Boolean} [explicitPartialContext=true]
    * @property {Boolean} [ignoreStandalone=true] When the value is true,disables standalone tag
-   * @property {String} [partialsPath] register partial
+   * @property {String} [partialsPath] full path to partials directory
    */
   handlebars: {
     data: true,

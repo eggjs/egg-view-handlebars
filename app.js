@@ -35,6 +35,7 @@ module.exports = app => {
 
 function loadPartial(app) {
   const partialsPath = app.config.handlebars.partialsPath;
+  // istanbul ignore next
   if (!fs.existsSync(partialsPath)) return;
 
   const partials = {};

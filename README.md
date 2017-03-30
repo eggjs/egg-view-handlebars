@@ -58,17 +58,9 @@ exports.view = {
 
 ### Register Partial
 
-You can register partial in `config.default.js`, the example is from [official site](http://handlebarsjs.com/#partials)
+Partials are loaded from `app/view/partials` by default, you can define `user_message.hbs` and use `userMessage` as partial.
 
-```js
-// config/config.default.js
-exports.handlebars = {
-  partials: {
-    userMessage: '<{{tagName}}>By {{author.firstName}} {{author.lastName}}</{{tagName}}>'
-    + '<div class="body">{{body}}</div>',
-  }
-}
-```
+**The file name will be camelized, e.x. `foo_bar > fooBar`, `foo-bar > fooBar`**
 
 ## Configuration
 
