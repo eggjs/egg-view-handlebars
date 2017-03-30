@@ -53,7 +53,7 @@ describe('test/view-handlebars.test.js', () => {
   it('should GET /partial', () => {
     return request(app.callback())
       .get('/partial')
-      .expect(/<h2>By Yehuda Katz<\/h2><div class="body">/)
+      .expect(/<h2>By Yehuda Katz<\/h2>\n<div class="body">/)
       .expect(200);
   });
 });
