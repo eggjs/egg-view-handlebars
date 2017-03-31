@@ -1,6 +1,6 @@
 {
   "name": "egg-view-handlebars",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "egg view plugin for handlebars",
   "eggPlugin": {
     "name": "handlebars",
