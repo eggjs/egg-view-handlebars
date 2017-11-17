@@ -17,12 +17,12 @@ module.exports = app => {
       this.app = ctx.app;
     }
 
-    * render(name, context, options) {
-      const content = yield fs.readFile(name, 'utf8');
+    async render(name, context, options) {
+      const content = await fs.readFile(name, 'utf8');
       return this[COMPILE](content, context, options);
     }
 
-    * renderString(tpl, context, options) {
+    async renderString(tpl, context, options) {
       return this[COMPILE](tpl, context, options);
     }
 

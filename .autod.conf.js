@@ -21,6 +21,5 @@ module.exports = {
     './test/fixtures',
     './docs',
     './coverage',
-  ],
-  registry: 'https://r.cnpmjs.org',
+  ]
 };

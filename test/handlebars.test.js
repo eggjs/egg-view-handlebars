@@ -3,11 +3,11 @@
 const request = require('supertest');
 const mm = require('egg-mock');
 
-describe('test/view-handlebars.test.js', () => {
+describe('test/handlebars.test.js', () => {
   let app;
   before(() => {
     app = mm.app({
-      baseDir: 'apps/view-handlebars-test',
+      baseDir: 'apps/handlebars-test',
     });
     return app.ready();
   });
