@@ -27,5 +27,6 @@ module.exports = appInfo => ({
     explicitPartialContext: true,
     ignoreStandalone: true,
     partialsPath: path.join(appInfo.baseDir, 'app/view/partials'),
+    helpersPath: path.join(appInfo.baseDir, 'app/view/helpers'),
   },
 });

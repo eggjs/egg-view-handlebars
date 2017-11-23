@@ -11,6 +11,11 @@ module.exports = app => {
   for (const key of Object.keys(partials)) {
     handlebars.registerPartial(key, partials[key]);
   }
+  
+  const helpers = loadHelper(app);
+  for (const key of Object.keys(helpers)) {
+    handlebars.registerHelper(key, eval("(" + helpers[key] + ")"));
+  }
 
   class HandlebarsView {
     constructor(ctx) {
@@ -35,20 +40,30 @@ module.exports = app => {
 
 function loadPartial(app) {
   const partialsPath = app.config.handlebars.partialsPath;
-  // istanbul ignore next
-  if (!fs.existsSync(partialsPath)) return;
+  return loadFiles(partialsPath);
+}
 
-  const partials = {};
-  const files = fs.readdirSync(partialsPath);
-  for (let name of files) {
-    const file = path.join(partialsPath, name);
-    const stat = fs.statSync(file);
-    if (!stat.isFile()) continue;
+function loadHelper(app) {
+  const helpersPath = app.config.handlebars.helpersPath;
+  return loadFiles(helpersPath);
+}
 
-    name = name
-      .replace(/\.\w+$/, '')
-      .replace(/[_-][a-z]/ig, s => s.substring(1).toUpperCase());
-    partials[name] = fs.readFileSync(file).toString();
-  }
-  return partials;
+function loadFiles(filesPath){
+	// istanbul ignore next
+	if (!fs.existsSync(filesPath)) return;
+	
+	const result = {};
+	const files = fs.readdirSync(filesPath);
+	for (let name of files) {
+		const file = path.join(filesPath, name);
+		const stat = fs.statSync(file);
+		if (!stat.isFile()) continue;
+
+		name = name
+		.replace(/\.\w+$/, '')
+		.replace(/[_-][a-z]/ig, s => s.substring(1).toUpperCase());
+		result[name] = fs.readFileSync(file).toString();
+	}
+	
+	return result;
 }
