@@ -18,3 +18,7 @@ exports.view = {
     '.hbs': 'handlebars',
   },
 };
+
+exports.handlebars = {
+	defaultLayout: 'main'
+}

@@ -43,6 +43,20 @@ describe('test/handlebars.test.js', () => {
       .expect(200);
   });
 
+  it('should GET /renderLayoutDefault', () => {
+    return request(app.callback())
+      .get('/renderLayoutDefault')
+      .expect('<!DOCTYPE html>\n<html>\n<head>\n<title>main</title>\n</head>\n<body>\nrender\n</body>\n</html>')
+      .expect(200);
+  });
+
+  it('should GET /renderLayoutCustom', () => {
+    return request(app.callback())
+      .get('/renderLayoutCustom')
+      .expect('<!DOCTYPE html>\n<html>\n<head>\n<title>layout</title>\n</head>\n<body>\nrender\n</body>\n</html>')
+      .expect(200);
+  });
+
   it('should GET /renderError', () => {
     return request(app.callback())
       .get('/renderError')
