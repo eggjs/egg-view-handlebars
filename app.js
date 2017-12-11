@@ -28,8 +28,10 @@ module.exports = app => {
 
       layout = layout ? layout : defaultLayout;
 
-      if (fs.existsSync(layoutsPath)) {
-        const layoutContent = fs.readFileSync(`${layoutsPath}/${layout}.hbs`).toString();
+      const isExistLayoutsPath = await fs.exists(layoutsPath);
+
+      if (isExistLayoutsPath) {
+        const layoutContent = await fs.readFile(path.join(layoutsPath,`${layout}.hbs`), 'utf-8');
         return this[COMPILE](layoutContent, Object.assign({}, context, { body }), options);
       }
     }
