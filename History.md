@@ -1,4 +1,9 @@
 
+2.0.1 / 2018-01-16
+==================
+
+  * fix: blocking egg startup if there is no partial directory (#7)
+
 2.0.0 / 2017-11-20
 ==================
 

@@ -1,6 +1,6 @@
 {
   "name": "egg-view-handlebars",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "egg view plugin for handlebars",
   "eggPlugin": {
     "name": "handlebars",
@@ -21,12 +21,12 @@
   },
   "devDependencies": {
     "autod": "^3.0.1",
-    "egg": "next",
-    "egg-bin": "^4.3.5",
+    "egg": "^2.2.0",
+    "egg-bin": "^4.3.7",
     "egg-ci": "^1.8.0",
-    "egg-mock": "^3.13.1",
-    "eslint": "^4.11.0",
-    "eslint-config-egg": "^5.1.1",
+    "egg-mock": "^3.14.0",
+    "eslint": "^4.15.0",
+    "eslint-config-egg": "^6.0.0",
     "supertest": "^3.0.0",
     "webstorm-disable-index": "^1.2.0"
   },
