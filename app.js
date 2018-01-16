@@ -8,10 +8,11 @@ const COMPILE = Symbol('compile');
 
 module.exports = app => {
   const partials = loadPartial(app);
-  for (const key of Object.keys(partials)) {
-    handlebars.registerPartial(key, partials[key]);
+  if (partials) {
+    for (const key of Object.keys(partials)) {
+      handlebars.registerPartial(key, partials[key]);
+    }
   }
-
   class HandlebarsView {
     constructor(ctx) {
       this.app = ctx.app;
