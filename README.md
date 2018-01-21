@@ -56,7 +56,7 @@ exports.view = {
 };
 ```
 
-### Register Partial
+## Register Partial
 
 Partials are loaded from `app/view/partials` by default, you can define `user_message.hbs` and use `userMessage` as partial.
 
@@ -64,6 +64,10 @@ Note:
 
 - The file name will be camelized, e.x. `foo_bar > fooBar`, `foo-bar > fooBar`
 - Don't support cascade directory
+
+## Layout Usage
+
+Layouts are loaded from  `app/view/layouts` by default, you can define `defaultLayout` in `config.default.js` or define custom layout in render function, use `layout = false` to disable layout.
 
 ## Configuration
 

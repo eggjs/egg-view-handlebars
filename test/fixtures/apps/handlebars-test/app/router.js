@@ -18,7 +18,7 @@ module.exports = app => {
   });
 
   app.get('/render', function* () {
-    yield this.render('home', { title: 'render' });
+    yield this.render('home', { title: 'render', layout: false });
   });
 
   app.get('/renderError', function* () {
@@ -27,6 +27,14 @@ module.exports = app => {
     } catch (err) {
       this.body = err.message;
     }
+  });
+
+  app.get('/renderLayoutDefault', function* () {
+    yield this.render('home', { title: 'render' });
+  });
+
+  app.get('/renderLayoutCustom', function* () {
+    yield this.render('home', { title: 'render', layout: 'layout' });
   });
 
   app.get('/partial', function* () {

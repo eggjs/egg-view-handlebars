@@ -7,6 +7,8 @@ const handlebars = require('handlebars');
 const COMPILE = Symbol('compile');
 
 module.exports = app => {
+  const defaultLayout = app.config.handlebars.defaultLayout;
+  const layoutsPath = app.config.handlebars.layoutsPath;
   const partials = loadPartial(app);
   if (partials) {
     for (const key of Object.keys(partials)) {
@@ -19,8 +21,20 @@ module.exports = app => {
     }
 
     async render(name, context, options) {
-      const content = await fs.readFile(name, 'utf8');
-      return this[COMPILE](content, context, options);
+      const viewContent = await fs.readFile(name, 'utf8');
+      const body = await this[COMPILE](viewContent, context, options);
+      let layout = context.layout;
+
+      if (layout === false || !defaultLayout) return body;
+
+      layout = layout ? layout : defaultLayout;
+
+      const isExistLayoutsPath = await fs.exists(layoutsPath);
+
+      if (isExistLayoutsPath) {
+        const layoutContent = await fs.readFile(path.join(layoutsPath,`${layout}.hbs`), 'utf-8');
+        return this[COMPILE](layoutContent, Object.assign({}, context, { body }), options);
+      }
     }
 
     async renderString(tpl, context, options) {
