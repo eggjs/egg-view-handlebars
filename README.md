@@ -71,7 +71,7 @@ Helpers are loaded from `app/extend/hbs-helper.js` by default.
 
 Note:
 
-- Ensure configuration `handlebars.knownHelpersOnly = false`.
+- If configuration `handlebars.knownHelpersOnly = true`, ensure `handlebars.knownHelpers = { xxx: true }` include all helper.
 
 ## Configuration
 

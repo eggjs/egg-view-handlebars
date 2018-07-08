@@ -11,7 +11,8 @@ module.exports = appInfo => ({
    * @property {Boolean} [compat=true] set to true to enable recursive field lookup.
    * @property {Boolean} [noEscape=false] set to true to not HTML escape any content.
    * @property {Boolean} [knownHelpers=false] optimize a number of cases.
-   * @property {Boolean} [knownHelpersOnly=true] prevent indent
+   * @property {Boolean} [knownHelpersOnly=false] set to true to allow further optimzations based on the known helpers list.
+   * @property {Boolean} [preventIndent=true] prevent indent
    * @property {Boolean} [strict=false] run in strict mode
    * @property {Boolean} [explicitPartialContext=true]
    * @property {Boolean} [ignoreStandalone=true] When the value is true,disables standalone tag
@@ -22,7 +23,8 @@ module.exports = appInfo => ({
     compat: true,
     noEscape: false,
     knownHelpers: false,
-    knownHelpersOnly: true,
+    knownHelpersOnly: false,
+    preventIndent: true,
     strict: false,
     explicitPartialContext: true,
     ignoreStandalone: true,

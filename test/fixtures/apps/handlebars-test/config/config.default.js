@@ -20,5 +20,7 @@ exports.view = {
 };
 
 exports.handlebars = {
-  knownHelpersOnly: false,
+  knownHelpers: {
+    fullName: true,
+  },
 };
