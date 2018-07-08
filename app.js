@@ -13,6 +13,12 @@ module.exports = app => {
       handlebars.registerPartial(key, partials[key]);
     }
   }
+  const helpers = loadHelper(app);
+  if (helpers) {
+    for (const key of Object.keys(helpers)) {
+      handlebars.registerHelper(key, helpers[key]);
+    }
+  }
   class HandlebarsView {
     constructor(ctx) {
       this.app = ctx.app;
@@ -52,4 +58,20 @@ function loadPartial(app) {
     partials[name] = fs.readFileSync(file).toString();
   }
   return partials;
+}
+
+function loadHelper(app) {
+  const helperPath = resolveModule(app.config.handlebars.helperPath);
+  if (!fs.existsSync(helperPath)) return;
+
+  return app.loader.loadFile(helperPath) || {};
+}
+
+function resolveModule(filepath) {
+  try {
+    return require.resolve(filepath);
+  } catch (e) {
+    // istanbul ignore next
+    return undefined;
+  }
 }

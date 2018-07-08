@@ -65,6 +65,14 @@ Note:
 - The file name will be camelized, e.x. `foo_bar > fooBar`, `foo-bar > fooBar`
 - Don't support cascade directory
 
+### Register Helper
+
+Helpers are loaded from `app/extend/hbs-helper.js` by default.
+
+Note:
+
+- Ensure configuration `handlebars.knownHelpersOnly = false`.
+
 ## Configuration
 
 see [config/config.default.js](config/config.default.js) for more detail.
