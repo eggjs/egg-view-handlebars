@@ -40,4 +40,9 @@ module.exports = app => {
     });
   });
 
+  app.get('/helperPath', function* () {
+    yield this.render('helper-path', {
+      author: { firstName: 'Alan', lastName: 'Johnson' },
+    });
+  });
 };

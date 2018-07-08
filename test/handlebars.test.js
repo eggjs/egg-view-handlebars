@@ -56,4 +56,11 @@ describe('test/handlebars.test.js', () => {
       .expect(/<h2>By Yehuda Katz<\/h2>\n<div class="body">/)
       .expect(200);
   });
+
+  it('should GET /helperPath', () => {
+    return request(app.callback())
+      .get('/helperPath')
+      .expect(/<h1>By Alan Johnson<\/h1>/)
+      .expect(200);
+  });
 });

@@ -18,3 +18,9 @@ exports.view = {
     '.hbs': 'handlebars',
   },
 };
+
+exports.handlebars = {
+  knownHelpers: {
+    fullName: true,
+  },
+};
