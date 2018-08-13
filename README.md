@@ -35,6 +35,9 @@ $ npm i egg-view-handlebars --save
 exports.handlebars = {
   enable: true,
   package: 'egg-view-handlebars',
+  // support cache.
+  // attention: the `options` param also will be cached
+  cache: true,
 };
 ```
 

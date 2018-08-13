@@ -5,6 +5,8 @@ const fs = require('mz/fs');
 const handlebars = require('handlebars');
 
 const COMPILE = Symbol('compile');
+const cacheStore = new Map();
+
 
 module.exports = app => {
   const partials = loadPartial(app);
@@ -19,16 +21,27 @@ module.exports = app => {
     }
 
     async render(name, context, options) {
-      const content = await fs.readFile(name, 'utf8');
-      return this[COMPILE](content, context, options);
+      const config = this.app.config;
+      let compiled = cacheStore.get(name);
+      if (!compiled) {
+        const content = await fs.readFile(name, 'utf8');
+        compiled = this[COMPILE](content, options);
+
+        if (config.handlebars && config.handlebars.cache) {
+          cacheStore.set(name, compiled);
+        }
+      }
+      return compiled(context);
     }
 
-    async renderString(tpl, context, options) {
-      return this[COMPILE](tpl, context, options);
+    async renderString(content, context, options) {
+      const compiled = this[COMPILE](content, options);
+      return compiled(context);
     }
 
-    [COMPILE](tpl, context, options) {
-      return handlebars.compile(tpl, Object.assign({}, this.app.config.handlebars, options))(context);
+    [COMPILE](content, options) {
+      options = Object.assign({}, this.app.config.handlebars, options);
+      return handlebars.compile(content, options);
     }
   }
   app.view.use('handlebars', HandlebarsView);

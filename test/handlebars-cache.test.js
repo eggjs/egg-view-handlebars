@@ -28,7 +28,7 @@ describe('test/handlebars-cache.test.js', () => {
   });
   afterEach(mm.restore);
 
-  it.only('cache compiled', () => {
+  it('cache compiled', () => {
     return request(app.callback())
       .get('/cache')
       .expect(/version-1/)
