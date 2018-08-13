@@ -77,7 +77,7 @@ describe('test/handlebars.test.js', () => {
       writeHbsFile(app, 'version-1');
     });
 
-    it.only('should GET /fresh', () => {
+    it('should GET /fresh', () => {
       return request(app.callback())
         .get('/fresh')
         .expect(/version-1\n+body/)
