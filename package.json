@@ -50,12 +50,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-view-handlebars.git"
+    "url": "git+https://github.com/daifee/egg-view-handlebars.git"
   },
   "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
+    "url": "https://github.com/daifee/egg/issues"
   },
-  "homepage": "https://github.com/eggjs/egg-view-handlebars#readme",
-  "author": "huangyanxiong <huangyanxiong2013@gmail.com>",
+  "homepage": "https://github.com/daifee/egg-view-handlebars#readme",
+  "author": "daifee",
   "license": "MIT"
 }
