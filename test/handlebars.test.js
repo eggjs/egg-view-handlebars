@@ -2,6 +2,9 @@
 
 const request = require('supertest');
 const mm = require('egg-mock');
+const path = require('path');
+const fs = require('fs');
+
 
 describe('test/handlebars.test.js', () => {
   let app;
@@ -56,4 +59,39 @@ describe('test/handlebars.test.js', () => {
       .expect(/<h2>By Yehuda Katz<\/h2>\n<div class="body">/)
       .expect(200);
   });
+
+
+  describe('优化本地开发，不缓存partials', () => {
+    function writeHbsFile(app, content) {
+      const tplPath = path.resolve(app.config.view.root[0], './partials/fresh_head.hbs');
+      fs.writeFileSync(tplPath, content, 'utf-8');
+    }
+
+    before(() => {
+      return app.ready(() => {
+        writeHbsFile(app, 'version-1');
+      });
+    });
+
+    after(() => {
+      writeHbsFile(app, 'version-1');
+    });
+
+    it('should GET /fresh', () => {
+      return request(app.callback())
+        .get('/fresh')
+        .expect(/version-1\n+body/)
+        .expect(200)
+        .then(() => {
+          // 编辑文件
+          writeHbsFile(app, 'version-2');
+
+          return request(app.callback())
+            .get('/fresh')
+            .expect(/version-2\n+body/)
+            .expect(200);
+        });
+    });
+  });
+
 });

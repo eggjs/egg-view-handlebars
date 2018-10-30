@@ -40,4 +40,8 @@ module.exports = app => {
     });
   });
 
+  app.get('/fresh', function* () {
+    yield this.render('fresh');
+  });
+
 };

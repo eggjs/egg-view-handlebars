@@ -5,34 +5,60 @@ const fs = require('mz/fs');
 const handlebars = require('handlebars');
 
 const COMPILE = Symbol('compile');
+const cacheStore = new Map();
+
 
 module.exports = app => {
-  const partials = loadPartial(app);
-  if (partials) {
-    for (const key of Object.keys(partials)) {
-      handlebars.registerPartial(key, partials[key]);
-    }
-  }
+  registerPartial(app);
+
   class HandlebarsView {
     constructor(ctx) {
       this.app = ctx.app;
     }
 
     async render(name, context, options) {
-      const content = await fs.readFile(name, 'utf8');
-      return this[COMPILE](content, context, options);
+      const config = this.app.config;
+      const cache = config.handlebars && config.handlebars.cache;
+      let compiled = cacheStore.get(name);
+
+      // recompile partials
+      if (!cache) {
+        registerPartial(this.app);
+      }
+
+      if (!compiled) {
+        const content = await fs.readFile(name, 'utf8');
+        compiled = this[COMPILE](content, options);
+
+        if (cache) {
+          cacheStore.set(name, compiled);
+        }
+      }
+      return compiled(context);
     }
 
-    async renderString(tpl, context, options) {
-      return this[COMPILE](tpl, context, options);
+    async renderString(content, context, options) {
+      const compiled = this[COMPILE](content, options);
+      return compiled(context);
     }
 
-    [COMPILE](tpl, context, options) {
-      return handlebars.compile(tpl, Object.assign({}, this.app.config.handlebars, options))(context);
+    [COMPILE](content, options) {
+      options = Object.assign({}, this.app.config.handlebars, options);
+      return handlebars.compile(content, options);
     }
   }
   app.view.use('handlebars', HandlebarsView);
 };
+
+function registerPartial(app) {
+  const partials = loadPartial(app);
+  if (partials) {
+    for (const key of Object.keys(partials)) {
+      handlebars.registerPartial(key, partials[key]);
+    }
+  }
+}
+
 
 function loadPartial(app) {
   const partialsPath = app.config.handlebars.partialsPath;
