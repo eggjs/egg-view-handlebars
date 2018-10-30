@@ -17,7 +17,7 @@ describe('test/handlebars-cache.test.js', () => {
     app = mm.app({
       baseDir: 'apps/handlebars-cache',
     });
-    return app.ready(() => {
+    return app.ready().then(() => {
       writeHbsFile(app, 'version-1');
     });
   });
