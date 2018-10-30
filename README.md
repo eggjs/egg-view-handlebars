@@ -1,4 +1,6 @@
-# egg-view-handlebars
+# egg-view-handlebars-x-x
+
+> [suport cache template and recompile partials](https://github.com/eggjs/egg-view-handlebars-x/pull/10)
 
 [![NPM version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
@@ -7,25 +9,25 @@
 [![Known Vulnerabilities][snyk-image]][snyk-url]
 [![npm download][download-image]][download-url]
 
-[npm-image]: https://img.shields.io/npm/v/egg-view-handlebars.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/egg-view-handlebars
-[travis-image]: https://img.shields.io/travis/eggjs/egg-view-handlebars.svg?style=flat-square
-[travis-url]: https://travis-ci.org/eggjs/egg-view-handlebars
-[codecov-image]: https://img.shields.io/codecov/c/github/eggjs/egg-view-handlebars.svg?style=flat-square
-[codecov-url]: https://codecov.io/github/eggjs/egg-view-handlebars?branch=master
-[david-image]: https://img.shields.io/david/eggjs/egg-view-handlebars.svg?style=flat-square
-[david-url]: https://david-dm.org/eggjs/egg-view-handlebars
-[snyk-image]: https://snyk.io/test/npm/egg-view-handlebars/badge.svg?style=flat-square
-[snyk-url]: https://snyk.io/test/npm/egg-view-handlebars
-[download-image]: https://img.shields.io/npm/dm/egg-view-handlebars.svg?style=flat-square
-[download-url]: https://npmjs.org/package/egg-view-handlebars
+[npm-image]: https://img.shields.io/npm/v/egg-view-handlebars-x.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/egg-view-handlebars-x
+[travis-image]: https://img.shields.io/travis/eggjs/egg-view-handlebars-x.svg?style=flat-square
+[travis-url]: https://travis-ci.org/eggjs/egg-view-handlebars-x
+[codecov-image]: https://img.shields.io/codecov/c/github/eggjs/egg-view-handlebars-x.svg?style=flat-square
+[codecov-url]: https://codecov.io/github/eggjs/egg-view-handlebars-x?branch=master
+[david-image]: https://img.shields.io/david/eggjs/egg-view-handlebars-x.svg?style=flat-square
+[david-url]: https://david-dm.org/eggjs/egg-view-handlebars-x
+[snyk-image]: https://snyk.io/test/npm/egg-view-handlebars-x/badge.svg?style=flat-square
+[snyk-url]: https://snyk.io/test/npm/egg-view-handlebars-x
+[download-image]: https://img.shields.io/npm/dm/egg-view-handlebars-x.svg?style=flat-square
+[download-url]: https://npmjs.org/package/egg-view-handlebars-x
 
 egg view plugin for handlebars
 
 ## Install
 
 ```bash
-$ npm i egg-view-handlebars --save
+$ npm i egg-view-handlebars-x --save
 ```
 
 ## Usage
@@ -34,7 +36,7 @@ $ npm i egg-view-handlebars --save
 // {app_root}/config/plugin.js
 exports.handlebars = {
   enable: true,
-  package: 'egg-view-handlebars',
+  package: 'egg-view-handlebars-x',
   // support cache.
   // attention: the `options` param also will be cached
   cache: true,
