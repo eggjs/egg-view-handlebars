@@ -1,4 +1,4 @@
-# egg-view-handlebars-x-x
+# egg-view-handlebars-x
 
 > [suport cache template and recompile partials](https://github.com/eggjs/egg-view-handlebars-x/pull/10)
 
